@@ -3,7 +3,7 @@
 
   position: absolute;
   width: calc(100% + 80px);
-  right: -80px;
+  right: -79px;
   visibility: hidden;
   padding: 25px 0;
   background-color:   rgb(251, 253, 255);
@@ -14,7 +14,7 @@
   box-shadow: 6px 5px 11px 0px rgba(66, 66, 66, 0.288);
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
-
+  z-index: 2;
 }
 
 .sub-menu.open {

@@ -12,7 +12,7 @@ header {
     rgba(227, 238, 255, 1) 92%,
     rgba(188, 213, 255, 1) 100%
   );
-
+  z-index: 90;
 
 }
 
@@ -32,9 +32,9 @@ header {
 }
 /* Desktops ou tablets de resolução baixa */
 @media (max-width: 1320px) {
-  .menu > li > a{
-    padding: 6px 24px !important;
-    font-size: 18px !important;
+  .menu > .menu-item > a{
+    padding: 6px 24px;
+    font-size: 18px;
   }
   
   nav {
@@ -49,14 +49,14 @@ header {
   }
 
   .menu > a{
-    padding: 0 2.5rem !important;
+    padding: 0 2.5rem;
   }
   .sub-menu {
     padding: 12px 0;
   }
   .sub-menu a {
-    padding-top: 9px !important;
-    padding-bottom: 9px !important;
+    padding-top: 9px;
+    padding-bottom: 9px;
   }
 
   .opcoes-nav {

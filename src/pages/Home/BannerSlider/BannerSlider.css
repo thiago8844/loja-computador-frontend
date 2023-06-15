@@ -1,0 +1,33 @@
+.banner {
+  position: relative;
+}
+
+.banner img {
+  width: 100%;
+  user-select: none;
+}
+
+
+.prev-slide, .next-slide  {
+  position: absolute;
+  width: 50px;
+  top: 50%;
+  z-index: 93;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.527);
+  opacity: 0.75;
+  cursor: pointer;
+}
+
+
+.prev-slide:hover, .next-slide:hover {
+  color: white;
+}
+
+.prev-slide {
+  left: 0;
+}
+
+.next-slide {
+  right: 0;
+}

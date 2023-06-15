@@ -1,0 +1,26 @@
+.home-session {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 24px rgba(122, 122, 122, 0.267);
+
+}
+
+.home-session .session-header {
+  display: flex;
+  background-color: #062f76;
+  align-items: center;
+  padding-left: 2.5rem;
+  gap: 0.5rem;
+  color: white;
+  text-transform: uppercase;
+  height: 70px;
+}
+
+.home-session .session-header img {
+  height: 40px;
+}
+
+.session-content {
+  background-color: white;
+  padding: 24px;
+}

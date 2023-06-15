@@ -1,6 +1,5 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom"
-import {ReactComponent as hamburguerIcon} from "../../../images/icons/hamburguer.svg";
 //COMPONENTES
 import Dropdown from "./Dropdown";
 //CSS
