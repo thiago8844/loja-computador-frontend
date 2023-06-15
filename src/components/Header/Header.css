@@ -1,0 +1,169 @@
+
+/* -=-=- Container Header -=-=- */
+header {
+  width: 100%;
+  white-space: nowrap;
+  background: rgba(227, 238, 255, 1);
+  background: linear-gradient(
+    90deg,
+    rgba(201, 221, 255, 1) 0%,
+    rgba(227, 238, 255, 1) 8%,
+    rgba(242, 247, 255, 1) 50%,
+    rgba(227, 238, 255, 1) 92%,
+    rgba(188, 213, 255, 1) 100%
+  );
+
+
+}
+
+
+/* -=-=-=- MEDIA QUERIES -=-=-=- */
+
+/* Computadores desktop de resolução média */
+@media (max-width: 1568px) {
+  header form {
+    width: calc(100vw - 82rem);
+    max-width: 70rem;
+  }
+
+  nav {
+    padding: 0 40px;
+  }
+}
+/* Desktops ou tablets de resolução baixa */
+@media (max-width: 1320px) {
+  .menu > li > a{
+    padding: 6px 24px !important;
+    font-size: 18px !important;
+  }
+  
+  nav {
+    justify-content: space-between;
+    height: 120px;
+  }
+  
+  header form {
+    width: calc(100vw - 72rem);
+    max-width: 60rem;
+    height: 36px;
+  }
+
+  .menu > a{
+    padding: 0 2.5rem !important;
+  }
+  .sub-menu {
+    padding: 12px 0;
+  }
+  .sub-menu a {
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+  }
+
+  .opcoes-nav {
+    gap: 24px;
+  }
+}
+
+/* Tablets e outros dispositivos mobiles */
+@media (max-width: 1080px) {
+  /* Removidos*/
+  nav .logo-container {
+    display: none;
+  }
+  nav .logo {
+    display: none;   
+  }
+  .menu {
+    display: 	none;
+  }
+
+  .user-mensagem {
+    display: none;
+  }
+
+  .desejos, .link-desejos {
+    display: none;
+  }
+  /* HEADER*/
+  header {
+    background:#0d254e;
+    display: fixed;
+  }
+  
+  /* NAV */
+  header {
+    position: fixed;
+    top: 0;
+    z-index: 111;
+  }
+  
+  nav {
+    height: auto;
+    width: 100%;
+
+
+    display: flex;
+    justify-content:space-between;
+    gap: 10px;
+    padding: 1.2rem 1.6rem;
+  }
+  
+
+  /* logo */
+  nav .logo-mobile-texto {
+    display: block;
+    max-width: auto;
+    height: 100%;
+    min-width: auto;
+    
+  }
+
+  /* Barra de pesquisa */
+  header form {
+    height: 3.6rem;
+    width: calc(100vw - 17.8rem);
+    max-width: 91rem;
+    max-width: none;
+  }
+
+  header input {
+    min-height: auto;
+    min-width: 0;
+  }
+  /* ICONES*/
+
+  nav .container-mobile {
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+  }
+  .hamburguer-mobile {
+    display: block !important;
+    height: 3rem;
+    color: white;
+  }
+
+  .hamburguer-mobile:hover {
+    cursor: pointer;
+  }
+  
+  .link-carrinho {
+    height: 35%;
+    display: flex;
+    align-items: center;
+  }
+
+  .carrinho {
+    color: white;
+    height: 2.8rem !important;
+
+  }
+
+  .slick-arrow {
+    display: none;
+  }
+
+  .container-home {
+    margin-top: 60px !important;
+  }
+}

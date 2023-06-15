@@ -1,0 +1,33 @@
+.menu > .menu-item {
+  position: relative;
+  border-left: 2px solid #123167;
+  transition: var(--transition-principal);
+}
+
+.menu > .menu-item > a{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: white;
+  font-size: 2rem;
+  padding: 0 35px; 
+  text-transform: uppercase;
+}
+.menu > li > a > img {
+  height: 24px;
+  color: white;
+  stroke: white;
+  fill: white;
+}
+.menu > .menu-item:last-child > a {
+  border-right: 2px solid  #123167;
+}
+.menu > .menu-item > a:hover {
+  background-color:#123167;  
+}
+
+.menu > .menu-item.dep > a{
+  cursor: default;
+}

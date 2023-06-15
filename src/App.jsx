@@ -1,12 +1,14 @@
+import { Route } from 'react-router-dom';
 import './App.css';
 
 //Componentes
-import Header from "./components/Header/Index";
+import Header from "./components/Header/Header";
+import Router from './router';
 
 function App() {
   return (
     <div className="App">
-      <Header/>  
+      <Router/>
     </div>
   );
 }

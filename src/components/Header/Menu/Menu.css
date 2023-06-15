@@ -1,0 +1,11 @@
+.menu {
+  height: 38px;
+  background-color: #1a4895;
+  color: white;
+  font-size: 1.99rem;
+  padding: 0 15rem;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+}
+
