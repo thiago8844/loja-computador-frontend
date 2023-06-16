@@ -1,8 +1,8 @@
 import React from "react";
 import "./CardProduto.css";
 
+import cdnLink from "../../services/cdn";
 import imagemTeste from "../../images/produtoteste.jpg";
-
 import { Link } from "react-router-dom";
 
 function CardProduto({ product }) {
@@ -27,7 +27,7 @@ function CardProduto({ product }) {
         />
       </svg>
 
-      <img src={imagemTeste} alt="anúncio do produto" className="img-product" />
+      <img src={`${cdnLink}${product.imagem_principal}`} alt="anúncio do produto" className="img-product" />
 
       <div className="product-info">
         <h3 className="product-name">{product.nome}</h3>

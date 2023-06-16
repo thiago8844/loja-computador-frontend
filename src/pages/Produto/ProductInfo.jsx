@@ -4,7 +4,7 @@ import "./ProductInfo.css";
 function ProductInfo() {
   return (
     <div className="product-info">
-      <ul class="about-product">
+      <ul className="about-product">
         <li>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ function ProductInfo() {
           <span id="divided-price"> R$ 546,00</span>
         </h4>
 
-        <button class="btn-add-cart">
+        <button className="btn-add-cart">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -68,8 +68,8 @@ function ProductInfo() {
           COMPRAR
         </button>
       </div>
-      <form method="" id="calculo-cep" class="form-frete-price">
-        <label for="cep" class="shipping-calculation__form__label">
+      <form method="" id="calculo-cep" className="form-frete-price">
+        <label htmlFor="cep" className="shipping-calculation__form__label">
           Informe o seu CEP:
         </label>
         <input
@@ -77,13 +77,13 @@ function ProductInfo() {
           name="cep"
           id="cep"
           data-auto-id="76"
-          class="texto-form-cep"
+          className="texto-form-cep"
           placeholder="Cep de entrega"
           required=""
-          autocomplete="off"
+          autoComplete="off"
         />
 
-        <button type="submit" class="submit_calculo-cep">
+        <button type="submit" className="submit_calculo-cep">
           Calcule
         </button>
       </form>

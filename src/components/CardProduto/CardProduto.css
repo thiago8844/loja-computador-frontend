@@ -74,8 +74,7 @@
   font-weight: 900;
   color: #c92a2a;
   position: relative;
-
-  align-self: end;
+  width: 100%;
 }
 
 .price-container::after {

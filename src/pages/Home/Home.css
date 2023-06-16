@@ -20,3 +20,40 @@ main {
 .flex-anuncio {
   gap: 1.25%;
 }
+
+@media (max-width: 1568px) {
+  .product-card {
+    width: 24%;
+  }
+  .flex-products {
+    gap: 1.1333333333%
+  }
+}
+
+@media (max-width: 1320px) {
+  .product-card {
+    width: 32.3333333%;
+  }
+  .flex-products {
+    gap: 1.5%
+  }
+}
+
+@media (max-width: 1077px) {
+  .product-card {
+    width: 49%;
+  }
+  .flex-products {
+    gap: 2%
+  }
+}
+
+@media (max-width: 670px) {
+  .product-card {
+    width: 100%;
+  }
+
+  .flex-products {
+    gap: 0%
+  }
+}
