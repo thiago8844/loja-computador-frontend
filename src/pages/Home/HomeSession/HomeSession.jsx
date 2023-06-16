@@ -13,7 +13,7 @@ function HomeSession(props) {
       </div>
       <div className="session-content">
         <FlexProducts>
-          <CardProduto />
+          {props.children}
         </FlexProducts>
       </div>
     </div>

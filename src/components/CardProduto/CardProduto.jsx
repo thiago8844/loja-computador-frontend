@@ -1,11 +1,13 @@
 import React from "react";
 import "./CardProduto.css";
 
+import imagemTeste from "../../images/produtoteste.jpg"
+
 import { Link } from "react-router-dom";
 
-function CardProduto(prop) {
+function CardProduto({product}) {
   return (
-    <Link className="product-card">
+    <Link to={`/produto/${product.id_produto}`} className="product-card">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -21,18 +23,19 @@ function CardProduto(prop) {
         />
       </svg>
 
-      <img src="" alt="anúncio do produto" className="img-product" />
+      <img src={imagemTeste} alt="anúncio do produto" className="img-product" />
 
       <div className="product-info">
-        <h3 className="product-name">TESTEEEEEEEEEEEEEE</h3>
+        <h3 className="product-name">{product.nome}</h3>
         <div className="price-container">
           <span id="price">
-            {Number(999999).toLocaleString("pt-br", {
+            {Number(product.preco).toLocaleString("pt-br", {
               style: "currency",
               currency: "BRL",
             })}
           </span>
         </div>
+        <button className="btn-add-to-cart">COMPRAR</button>
       </div>
     </Link>
   );

@@ -1,4 +1,6 @@
 import React from 'react'
+import "./FlexProducts.css"
+
 
 function FlexProducts(props) {
   

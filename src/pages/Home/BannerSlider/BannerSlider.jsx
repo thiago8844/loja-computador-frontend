@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Swiper, SwiperSlide, useSwiper } from "swiper/react";
+import { Swiper, SwiperSlide} from "swiper/react";
 
 import SliderButtonPrev from "./SliderButtonPrev";
 import SliderButtonNext from "./SliderButtonNext";
@@ -14,15 +14,12 @@ import imagemBanner3 from "../../../images/slider/1920x360.jpg";
 
 function BannerSlider() {
 
-  const swiper = useSwiper();
 
 
   return (
     <div className="banner">
       <Swiper
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         loop={true}
         speed={500}
       >

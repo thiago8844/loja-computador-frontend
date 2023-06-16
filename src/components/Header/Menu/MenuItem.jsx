@@ -16,10 +16,8 @@ function MenuItem({ item, depthLevel }) {
     setDropdown((prev) => !prev);
   };
   
-  
-
   return (
-    <li className={`menu-item ${item.title === "DEPARTAMENTO"? "dep" : ""}`} key={key} onMouseEnter={toogleDropdown} onMouseLeave={toogleDropdown}>
+    <li className={`menu-item ${item.title === "departamentos" ? "dep" : ""}`} key={key} onMouseEnter={toogleDropdown} onMouseLeave={toogleDropdown}>
       {item.subMenu ? (
         <>
           <Link

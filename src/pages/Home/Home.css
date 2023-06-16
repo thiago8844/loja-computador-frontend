@@ -7,8 +7,16 @@ main {
   width: 95%;
   margin: 0 auto;
   margin-bottom: 9.2rem;
-  /* display: grid;
-
+  display: grid;
+  margin-top: 96px;
   grid-template-rows: repeat(4, auto);
-  gap: 7.2rem; */
+  gap: 7.2rem;
+}
+
+.product-card {
+  width: 19%;
+}
+
+.flex-anuncio {
+  gap: 1.25%;
 }

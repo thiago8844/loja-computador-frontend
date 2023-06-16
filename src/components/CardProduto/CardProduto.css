@@ -1,18 +1,23 @@
 .product-card {
   height: 430px;
-  width: 20%;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.071);
   border: 1px solid rgba(138, 138, 138, 0.252);
   background-color: rgb(255, 255, 255);
   border-radius: 6px;
   display: grid;
-  grid-template-rows: 200px auto auto;
+  grid-template-rows: 200px auto ;
   transition: 0.15s;
   position: relative;
   margin-bottom: 20px;
   text-decoration: none;
 }
-
+.product-card img {
+  margin-top: 12px;
+  height: 200px;
+  width: 100%;
+  user-select: none;
+  object-fit: contain;
+}
 .product-card:hover {
   box-shadow: 0 0 15px rgba(134, 134, 134, 0.629);
   cursor: pointer;
@@ -40,4 +45,62 @@
 
 .product-card:hover svg:hover {
   box-shadow: 0 0 10px rgba(197, 197, 197, 0.233);
+}
+
+.product-info {
+  padding: 10px;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  text-align: start;
+}
+
+.product-name {
+  
+
+  color: rgb(63, 63, 63);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  margin-top: 10px;
+}
+
+.price-container {
+  margin-bottom: 32px;
+  align-self: end;
+  font-size: 28px;
+  font-weight: 900;
+  color: #c92a2a;
+  position: relative;
+
+  align-self: end;
+}
+
+.price-container::after {
+  content: "À vista no pix";
+  position: absolute;
+  font-size: 12px;
+  bottom: -12px;
+  left: 0;
+  color: rgb(100, 100, 100);
+}
+
+.btn-add-to-cart {
+  width: 100%;
+  height: 40px;
+  font-family: sofia sans;
+  
+  border: none;
+  color: white;
+  background-color: rgb(0, 40, 121);
+  border-radius: 5px;
+  transition: 0.1s;
+  align-self: end;
+}
+
+.btn-add-to-cart:hover {
+  cursor: pointer;
+  transform: scale(1.005);
 }
