@@ -15,7 +15,7 @@ import lightningIcon from "../../images/icons/lightning.svg";
 import "./Home.css";
 
 function Home() {
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
 
   const loadProducts = async () => {
     try {
@@ -40,7 +40,7 @@ function Home() {
         <BannerSlider />
         <div className="home-container">
           <HomeSession title="ofertas do momento" icon={clockIcon}>
-            {products ? products.map((prod, i) => <CardProduto product={prod} key={i}/>): null} 
+            {products.map((prod, i) => <CardProduto product={prod} key={i}/>)} 
           </HomeSession>
          
           <HomeSession title="mais vendidos" icon={lightningIcon}></HomeSession>

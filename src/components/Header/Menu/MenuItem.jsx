@@ -17,15 +17,13 @@ function MenuItem({ item, depthLevel }) {
   };
   
   return (
-    <li className={`menu-item ${item.title === "departamentos" ? "dep" : ""}`} key={key} onMouseEnter={toogleDropdown} onMouseLeave={toogleDropdown}>
+    <li className={`menu-item ${item.title === "departamentos" ? "dep" : ""} ${dropdown && depthLevel === 0? "open" : ""}`} key={key} onMouseEnter={toogleDropdown} onMouseLeave={toogleDropdown}>
       {item.subMenu ? (
         <>
           <Link
             to={url ? `/departamento${url}` : ""}
             aria-expanded={dropdown ? "true" : "false"}
           > 
-   
-            
             {item.icon && depthLevel===0 ? (<img src={item.icon}/>) : ""} 
             {title} 
             {item.icon && depthLevel===1 ? (<img src={item.icon}/>) : ""} 

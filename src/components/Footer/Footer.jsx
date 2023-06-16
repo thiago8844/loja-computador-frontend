@@ -11,10 +11,10 @@ import "./Footer.css";
 function Footer() {
   return (
     <footer>
-      <div class="parte1">
-        <div class="itens-footer-p1">
+      <div className="parte1">
+        <div className="itens-footer-p1">
           <ul>
-            <span class="titulo">INSTITUCIONAL</span>
+            <span className="titulo">INSTITUCIONAL</span>
             <li>
               <img src={whiteArrow} />
               <a href="">Quem somos</a>
@@ -38,7 +38,7 @@ function Footer() {
           </ul>
 
           <ul>
-            <span class="titulo">DÚVIDAS</span>
+            <span className="titulo">DÚVIDAS</span>
             <li>
               <img src={whiteArrow} />
               <a href="">Como comprar</a>
@@ -58,7 +58,7 @@ function Footer() {
           </ul>
 
           <ul>
-            <span class="titulo">CLIENTE</span>
+            <span className="titulo">CLIENTE</span>
             <li>
               <img src={whiteArrow} />
               <a href="">Minha conta</a>
@@ -78,7 +78,7 @@ function Footer() {
           </ul>
 
           <ul>
-            <span class="titulo">AJUDA</span>
+            <span className="titulo">AJUDA</span>
             <li>
               <img src={whiteArrow} />
               <a href="">Video Tutoriais</a>
@@ -94,9 +94,9 @@ function Footer() {
           </ul>
         </div>
       </div>
-      <div class="parte2">
+      <div className="parte2">
         <p>REDES SOCIAIS</p>
-        <div class="redesocial-container">
+        <div className="redesocial-container">
           <img src={iconeFacebook} alt="" />
           <img src={iconeInsta} alt="" />
           <img src={iconeTwitter} alt="" />

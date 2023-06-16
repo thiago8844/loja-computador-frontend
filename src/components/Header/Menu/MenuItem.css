@@ -27,7 +27,9 @@
 .menu > .menu-item > a:hover {
   background-color:#123167;  
 }
-
+.menu-item.open {
+  background-color:#123167;  
+}
 .menu > .menu-item.dep > a{
   cursor: default;
 }

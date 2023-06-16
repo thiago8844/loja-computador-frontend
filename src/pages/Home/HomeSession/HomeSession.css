@@ -15,7 +15,10 @@
   text-transform: uppercase;
   height: 70px;
 }
-
+.home-session .session-content {
+  padding: 24px;
+  background-color: white;
+}
 .home-session .session-header img {
   height: 40px;
 }

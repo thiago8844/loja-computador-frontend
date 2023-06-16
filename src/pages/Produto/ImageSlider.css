@@ -1,0 +1,49 @@
+.image-slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80px;
+  height: 100%;
+  min-width: 80px;
+}
+
+.image-slider button {
+  border: none;
+  width: 100%;
+  height: 40px;
+  background: none;
+  color: rgb(54, 54, 54);
+  opacity: 0.7;
+}
+.image-slider button:first-child {
+  margin-bottom: 16px;
+}
+.image-slider button:last-child {
+  margin-top: 16px;
+}
+
+.image-slider button:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.image-slider button svg {
+  height: 100%;
+}
+
+.image-slider img {
+  height: 80px;
+  width: 100%;
+  object-fit: contain;
+  border: 2px solid rgba(59, 59, 59, 0.219);
+  border-radius: 8px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.image-slider img.ativa {
+  border: 2px solid rgba(59, 59, 59, 0.575);
+}
+.image-slider img:hover {
+  border: 2px solid rgba(59, 59, 59, 0.575);
+}
