@@ -39,8 +39,6 @@
   object-fit: contain;
 }
 
-
-
 @media (max-width: 1077px) {
   .department-grid {
     height: auto;

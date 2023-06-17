@@ -21,7 +21,6 @@ function Home() {
     try {
       const response = await api.get("todosprodutos");
       setProducts(response.data);
-      console.log(response.data)
     } catch (error) {
       console.error(error);
     }

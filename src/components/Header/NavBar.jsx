@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import Cookies from "universal-cookie/cjs/Cookies";
+import jwt from "jwt-decode";
 //CSS
 import "./NavBar.css";
 
@@ -10,6 +11,26 @@ import logoMobile from "../../images/logos/Logo sozinha.svg";
 import userLogo from "../../images/icons/user.svg";
 
 function NavBar() {
+  const cookies = new Cookies();
+  const [auth, setAuth] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  const logOut = () => {
+    cookies.remove("auth");
+    setUserName("");
+    setAuth(false);
+  };
+
+  useEffect(() => {
+    const token = cookies.get("auth");
+    if (token) {
+      const { name } = jwt(token);
+      setUserName(name);
+      setAuth(true);
+    }
+  }, []);
+
+
   return (
     <nav>
       <svg
@@ -65,27 +86,29 @@ function NavBar() {
       <div className="user-mensagem">
         <img src={userLogo} alt="user logo" className="user icon-nav" />
 
-        {/*
-        
-        OPICIONAL PARA QUANDO EU CONSEGUIR LOGAR O USUÁRIO
-        <p>
-          <span>
-            Olá, <strong id="user-name">locals.nameLogged</strong>
-          </span>
-          <br />
-          <a to="/minha-conta">Minha Conta</a> | <a to="/logout">Sair</a>
-        </p>
-        */}
-        <p>
-          <Link to="/cadastro" className="strong">
-            Cadastre-se
-          </Link>
-          <br />
-          ou{" "}
-          <Link to="/login" className="strong">
-            faça Login
-          </Link>
-        </p>
+        {auth ? (
+          <p>
+            <span>
+              Olá, <strong id="user-name">{userName}</strong>
+            </span>
+            <br />
+            <Link to="/minha-conta">Minha Conta</Link> |{" "}
+            <Link to="" onClick={logOut}>
+              Sair
+            </Link>
+          </p>
+        ) : (
+          <p>
+            <Link to="/cadastro" className="strong">
+              Cadastre-se
+            </Link>
+            <br />
+            ou{" "}
+            <Link to="/login" className="strong">
+              faça Login
+            </Link>
+          </p>
+        )}
       </div>
 
       <div className="opcoes-nav">

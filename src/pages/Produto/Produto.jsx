@@ -22,12 +22,15 @@ function Produto(props) {
 
   const [product, setProduct] = useState();
   const [activeImage, setActiveImage] = useState("");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const loadProducts = async () => {
     try {
       const response = await api.get(`produto/${id}`);
       setProduct(response.data);
-      setActiveImage(product.Imagem[0].caminho);
+      //Seta a imagem
+      setActiveImage(response.data.Imagem[0].caminho);
+      setActiveImageIndex(0);
     } catch (error) {
       console.error(error);
     }
@@ -35,8 +38,25 @@ function Produto(props) {
 
   useEffect(() => {
     loadProducts();
-
   }, []);
+
+  const changeImage = (i) => {
+    const imagens = product.Imagem;
+    setActiveImage(imagens[i].caminho);
+    setActiveImageIndex(i);
+  };
+
+  const nextImage = (i) => {
+    const imagesLength = product.Imagem.length - 1;
+
+    if (activeImageIndex === imagesLength) {
+      setActiveImage(imagens[0].caminho);
+      setActiveImageIndex(0);
+    }
+
+    setActiveImageIndex((prev) => prev + 1);
+    changeImage();
+  };
 
   if (product) {
     return (
@@ -48,17 +68,24 @@ function Produto(props) {
 
             <div className="product-area">
               <ImageSlider>
-              {product.Imagem.map((img, i) => {
+                {product.Imagem.map((img, i) => {
                   return (
-                    <img src={`${cdn}${img.caminho}`} alt="imagem produto" key={i}/>
-                  )
+                    <img
+                      onClick={(e) => changeImage(i)}
+                      src={`${cdn}${img.caminho}`}
+                      alt="imagem produto"
+                      key={i}
+                      className={`${i === activeImageIndex ? "active" : ""}`}
+                    />
+                  );
                 })}
               </ImageSlider>
+
               <ImageContainer>
                 <img src={`${cdn}${activeImage}`} alt="imagem em destaque" />
               </ImageContainer>
 
-              <ProductInfo price={product.preco}/>
+              <ProductInfo price={product.preco} />
             </div>
           </div>
 
@@ -73,7 +100,6 @@ function Produto(props) {
       </>
     );
   }
-
 }
 
 export default Produto;

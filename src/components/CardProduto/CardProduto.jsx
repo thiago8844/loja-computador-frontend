@@ -29,7 +29,7 @@ function CardProduto({ product }) {
 
       <img src={`${cdnLink}${product.imagem_principal}`} alt="anúncio do produto" className="img-product" />
 
-      <div className="product-info">
+      <div className="product-title">
         <h3 className="product-name">{product.nome}</h3>
         <div className="price-container">
           <span id="price">

@@ -41,7 +41,7 @@
   cursor: pointer;
 }
 
-.image-slider img.ativa {
+.image-slider img.active {
   border: 2px solid rgba(59, 59, 59, 0.575);
 }
 .image-slider img:hover {

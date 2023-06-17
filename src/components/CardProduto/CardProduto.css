@@ -47,7 +47,7 @@
   box-shadow: 0 0 10px rgba(197, 197, 197, 0.233);
 }
 
-.product-info {
+.product-title {
   padding: 10px;
   display: grid;
   grid-template-rows: 80px 1fr;

@@ -1,0 +1,11 @@
+.cart-container {
+  max-width: 1450px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 72px;
+  margin-bottom: 96px;
+  display: flex;
+  padding: 12px;
+  gap: 24px;
+}
+
