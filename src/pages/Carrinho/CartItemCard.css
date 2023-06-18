@@ -1,0 +1,92 @@
+.cart-item-card {
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
+  height: 130px;
+  background-color: rgb(248, 248, 248);
+  border-bottom: 1px solid rgb(211, 211, 211);
+  box-sizing: content-box;
+  padding: 18px 0;
+}
+
+.img-desc-container {
+  display: flex;
+  height: 100%;
+  gap: 16px;
+  max-width: 600px;
+  flex-grow: 1;
+}
+
+.img-cont {
+  width: 120px;
+  height: 120px;
+  display: block;
+
+  flex-shrink: 0;
+  background-color: rgb(180, 180, 255);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.cart-item-description {
+  max-width: 400px;
+  flex-grow: 1;
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+}
+.cart-item-description-container a {
+  text-decoration: none;
+  color: black;
+  overflow: hidden;
+}
+.cart-item-description-container a:hover {
+  text-decoration: underline;
+}
+
+.cart-item-card .item-amount {
+  height: 40px;
+  min-width: 100px;
+  border-radius: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item-card .item-amount .less {
+  opacity: 0.20;
+}
+.cart-item-card .item-amount span {
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.cart-item-card .item-amount span.num {
+  border-right: 2px solid rgba(0, 0, 0, 0.247);
+  border-left: 2px solid rgba(0, 0, 0, 0.247);
+}
+
+.cart-item-card .item-amount span:last-child, .cart-item-card .item-amount span:first-child {
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.cart-item-price {
+  font-weight: 600;
+  max-width: 100px;
+  flex-grow: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.remove-item {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}

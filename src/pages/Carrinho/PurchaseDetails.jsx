@@ -1,8 +1,10 @@
 import React from 'react'
 
+import "./PurchaseDetails.css";
+
 function PurchaseDetails() {
   return (
-    <div>PurchaseDetails</div>
+    <div className='purchase-details-container'>PurchaseDetails</div>
   )
 }
 

@@ -15,3 +15,36 @@ export const getCookie = (cookieName) => {
 
   return ""
 }
+
+import Cookies from "universal-cookie";
+import jwt from "jwt-decode";
+
+const cookies = new Cookies();
+
+export const checkAuth = () => {
+  let authenticated = false;
+
+  try {
+    const token = cookies.get("auth");
+
+    if(token) {
+      const {id} = jwt(token);
+      authenticated = true;
+      
+      return {
+        user_id: id,
+        authenticated,
+        token
+      }
+    }
+  } catch (error) {
+        console.log(error);
+  }
+
+  return {
+    user_id: null,
+    authenticated,
+    token: null
+  }
+
+}

@@ -1,0 +1,7 @@
+.purchase-details-container {
+  flex: 1 0 320px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}

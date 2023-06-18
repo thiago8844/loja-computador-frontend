@@ -58,7 +58,13 @@ function Produto(props) {
     changeImage();
   };
 
+
+  const addProductToCart = () => {
+
+  }
+
   if (product) {
+
     return (
       <>
         <Header />
@@ -85,7 +91,7 @@ function Produto(props) {
                 <img src={`${cdn}${activeImage}`} alt="imagem em destaque" />
               </ImageContainer>
 
-              <ProductInfo price={product.preco} />
+              <ProductInfo price={product.preco} id_produto={product.id_produto}/>
             </div>
           </div>
 
@@ -96,6 +102,8 @@ function Produto(props) {
             </div>
           </section>
         </main>
+
+
         <Footer />
       </>
     );
