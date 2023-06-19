@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Cookies from "universal-cookie/cjs/Cookies";
+import { useNavigate } from "react-router-dom";
 import jwt from "jwt-decode";
 //CSS
 import "./NavBar.css";
@@ -11,13 +12,15 @@ import logoMobile from "../../images/logos/Logo sozinha.svg";
 import userLogo from "../../images/icons/user.svg";
 
 function NavBar() {
-  const cookies = new Cookies();
+  const navigate = useNavigate();
   const [auth, setAuth] = useState(false);
   const [userName, setUserName] = useState("");
-
+  const cookies = new Cookies();
+  
   const logOut = () => {
     cookies.remove("auth");
     setUserName("");
+    navigate("/");
     setAuth(false);
   };
 

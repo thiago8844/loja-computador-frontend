@@ -28,7 +28,11 @@
   border-radius: 5px;
   overflow: hidden;
 }
-
+.img-cont img {
+  object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
 .cart-item-description {
   max-width: 400px;
   flex-grow: 1;

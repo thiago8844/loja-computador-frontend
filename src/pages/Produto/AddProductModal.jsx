@@ -5,7 +5,7 @@ import "./AddProductModal.css";
 function AddProductModal({show, fechaModal}) {
   
   show ? document.body.style.overflow = "hidden" : document.body.style.overflow = "auto";
-  console.log("Pica");
+
   return (
     <>
       <div className={`modal-add-produto ${show ? "aberto" : "fechado"}`}>

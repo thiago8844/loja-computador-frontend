@@ -1,21 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import cdn from "../../services/cdn";
 import "./CartItemCard.css";
 /* CRIAR COMPONENT ITEM AMMOUNT\ */
-function CartItemCard({product}) {
+function CartItemCard({item}) {
+ const preco = Number(item.preco).toLocaleString("pt-br", {
+  style: "currency",
+  currency: "BRL",
+});
+  
   return (
     <div className="cart-item-card">
       <div className="img-desc-container">
-        <Link className="img-cont" href="/produto/<%=produto.id_produto%>">
-          <img src="s" alt="" />
+        <Link className="img-cont"  to={`/produto/${item.id_produto}`}>
+          <img src={`${cdn}${item.imagem_principal}`} alt="" />
         </Link>
         <div className="cart-item-description-container">
           <Link
-           to=""
+           to={`/produto/${item.id_produto}`}
             className="cart-item-description"
           >
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquid,
-            qui, eveniet mollitia asperiores doloremque, atque vitae iure
+            {item.nome}
 
           </Link>
         </div>
@@ -23,12 +28,12 @@ function CartItemCard({product}) {
 
       <div className="item-amount">
         <span className="less">-</span>
-        <span className="value">1</span>
+        <span className="value">{item.quantidade}</span>
         <span className="more">+</span>
       </div>
 
-      <div class="cart-item-price">
-        <span>R$ 29999,99</span>
+      <div className="cart-item-price">
+        <span>{preco}</span>
       </div>
 
       <svg
