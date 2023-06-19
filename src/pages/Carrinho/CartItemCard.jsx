@@ -2,34 +2,37 @@ import React from "react";
 import { Link } from "react-router-dom";
 import cdn from "../../services/cdn";
 import "./CartItemCard.css";
-/* CRIAR COMPONENT ITEM AMMOUNT\ */
-function CartItemCard({item}) {
- const preco = Number(item.preco).toLocaleString("pt-br", {
-  style: "currency",
-  currency: "BRL",
-});
+
+
+function CartItemCard({ item, unique, editUserProductAmount, removeUserItem }) {
   
+  const preco = Number(item.preco).toLocaleString("pt-br", {
+    style: "currency",
+    currency: "BRL",
+  });
+
+
+
   return (
-    <div className="cart-item-card">
+    <div className={`cart-item-card ${unique ? "unique" : ""}`}>
       <div className="img-desc-container">
-        <Link className="img-cont"  to={`/produto/${item.id_produto}`}>
+        <Link className="img-cont" to={`/produto/${item.id_produto}`}>
           <img src={`${cdn}${item.imagem_principal}`} alt="" />
         </Link>
         <div className="cart-item-description-container">
           <Link
-           to={`/produto/${item.id_produto}`}
+            to={`/produto/${item.id_produto}`}
             className="cart-item-description"
           >
             {item.nome}
-
           </Link>
         </div>
       </div>
 
       <div className="item-amount">
-        <span className="less">-</span>
+        <span onClick={() => editUserProductAmount("subtract", item.id_produto, unique)} className="less">-</span>
         <span className="value">{item.quantidade}</span>
-        <span className="more">+</span>
+        <span onClick={() => editUserProductAmount("add", item.id_produto, unique)} className="more">+</span>
       </div>
 
       <div className="cart-item-price">
@@ -37,6 +40,7 @@ function CartItemCard({item}) {
       </div>
 
       <svg
+        onClick={() => removeUserItem(item.id_produto)}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"

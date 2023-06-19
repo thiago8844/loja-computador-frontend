@@ -20,8 +20,8 @@ function NavBar() {
   const logOut = () => {
     cookies.remove("auth");
     setUserName("");
-    navigate("/");
     setAuth(false);
+    navigate("/");
   };
 
   useEffect(() => {

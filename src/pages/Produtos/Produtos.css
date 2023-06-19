@@ -1,0 +1,10 @@
+.products-page-container {
+  width: 95%;
+  max-width: 1620px;
+
+  margin: 96px auto;
+  margin-bottom: 156px;
+
+  height: 1200px;
+  background-color: blue;
+}

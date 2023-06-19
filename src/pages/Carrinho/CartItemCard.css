@@ -61,7 +61,7 @@
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.cart-item-card .item-amount .less {
+.cart-item-card.unique .item-amount .less {
   opacity: 0.20;
 }
 .cart-item-card .item-amount span {

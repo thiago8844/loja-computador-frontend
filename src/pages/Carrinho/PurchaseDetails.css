@@ -5,3 +5,91 @@
   flex-direction: column;
   justify-content: start;
 }
+
+.purchase-info {
+  background-color: #062f76;
+  border-radius: 4px;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+.purchase-info h1 {
+  padding: 16px;
+  text-align: center;
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 32px;
+}
+
+.purchase-values > * {
+  padding: 0 16px;
+  font-size: 20px;
+}
+
+.sub-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.frete {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 38px;
+}
+
+.form-cupom {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.cupom-texto {
+  height: 40px;
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.cupom-button {
+  width: 120px;
+  font-weight: 700;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: hsl(216, 100%, 40%);
+  cursor: pointer;
+  color: white;
+}
+
+.cupom-button:hover {
+  background-color: hsl(216, 95%, 63%);
+}
+
+.total-price-container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 26px;
+  padding: 20px 16px;
+  background-color: #0a44a8;
+}
+
+.finish-purchase-btn {
+  border: none;
+  padding: 12px;
+  color: white;
+  background-color: rgb(206, 0, 0);
+  font-size: 20px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-self: end;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.finish-purchase-btn:hover {
+  background-color: rgb(173, 0, 0);
+}

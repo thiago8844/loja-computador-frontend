@@ -1,48 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { checkAuth } from "../../utils";
-import api from "../../services/api";
 import CartItemCard from "./CartItemCard";
 
 import "./CartProducts.css";
 
-function CartProducts() {
-  const [cartItems, setCartItems] = useState([]);
-  const { user_id, authenticated, token } = checkAuth();
-
-
-  const loadUserCart = async () => {
-    try {
-      const response = await api.get(`produtos-usuario/${user_id}`, {
-        headers: {
-          Authorization: token,
-        },
-      });
-      console.log(response);
-      setCartItems(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const clearUserCart = async () => {
-    try {
-      const response = await api.delete(`limparcarrinho/${user_id}`, {
-        headers: {
-          Authorization: token,
-        },
-      });
-
-      loadUserCart();
-      console.log(response);
-    } catch (error) {
-      console.error(error)
-    }
-  };
-
-  useEffect(() => {
-    if (user_id) loadUserCart();
-  }, []);
-
+function CartProducts({cartItems, clearUserCart, authenticated, editUserProductAmount, removeUserItem}) {
+  
   return (
     <div className={`cart-products ${cartItems.length === 0 ? "vazio" : ""}`}>
       <div className="cart-header">
@@ -56,12 +18,12 @@ function CartProducts() {
       {cartItems.length === 0 ? <h2>Carrinho Vazio</h2> : <></>}
       <div className="customer-products">
         {cartItems.map((item, i) => {
-          return <CartItemCard key={i} item={item} />;
+          return <CartItemCard unique={item.quantidade === 1 ? true : false} removeUserItem={removeUserItem} editUserProductAmount={editUserProductAmount} key={i} item={item} />;
         })}
       </div>
 
       {cartItems.length > 0 ? (
-        <button onClick={user_id ? clearUserCart : ""} className="clear-cart-btn">Limpar Carrinho</button>
+        <button onClick={authenticated ? clearUserCart : ""} className="clear-cart-btn">Limpar Carrinho</button>
       ) : (
         <></>
       )}
