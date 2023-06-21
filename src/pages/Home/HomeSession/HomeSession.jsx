@@ -12,7 +12,7 @@ function HomeSession(props) {
         <h1>{props.title}</h1>
       </div>
       <div className="session-content">
-        <FlexProducts>
+        <FlexProducts page={"home"}>
           {props.children}
         </FlexProducts>
       </div>

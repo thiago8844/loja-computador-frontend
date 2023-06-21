@@ -99,7 +99,7 @@ export const menuStruct = [
             url: "/notebooks/macbook",
           },
           {
-            title: "Mouse",
+            title: "Notebook Gamer",
             url: "/notebooks/notebook-gamer",
           },
           {

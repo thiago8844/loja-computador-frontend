@@ -71,7 +71,7 @@ function Carrinho() {
   };
 
   useEffect(() => {
-    if (user_id) loadUserCart();
+    if (authenticated) loadUserCart();
   }, []);
 
   return (

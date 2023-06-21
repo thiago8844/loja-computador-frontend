@@ -64,38 +64,38 @@
   padding: 3rem;
 }
 
-.formHeader {
+.formLogin .formHeader {
   margin-bottom: 1rem;
   display: flex;
   justify-content: space-between;
 }
 
-.formLogin h1 {
+.formLogin .formLogin h1 {
   color: #0e5291;
   font-size: 35px;
   font-weight: 200;
 }
 
-.formLogin label {
+.formLogin .formLogin label {
   color: #0e5291;
   font-size: 20px;
   font-weight: 300;
 }
 
-.inputs {
+.formLogin .inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem 0;
 }
 
-.inputbox {
+.formLogin .inputbox {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.1rem;
 }
 
-.inputbox input {
+.formLogin .inputbox input {
   margin: 0.6rem 0;
   padding: 0.8rem 1.2rem;
   border: none;
@@ -105,7 +105,7 @@
   transition: 1s;
 }
 
-.inputbox input:hover {
+.formLogin .inputbox input:hover {
   background-color: #a4cdef;
   outline: none;
 }

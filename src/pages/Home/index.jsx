@@ -30,8 +30,6 @@ function Home() {
     loadProducts();
   }, []);
 
-
-
   return (
     <>
       <Header />
@@ -39,10 +37,16 @@ function Home() {
         <BannerSlider />
         <div className="home-container">
           <HomeSession title="ofertas do momento" icon={clockIcon}>
-            {products.map((prod, i) => <CardProduto product={prod} key={i}/>)} 
+            {products.map((prod, i) => (
+              <CardProduto page={"home"} product={prod} key={i} />
+            ))}
           </HomeSession>
-         
-          <HomeSession title="mais vendidos" icon={lightningIcon}></HomeSession>
+
+          <HomeSession title="mais vendidos" icon={lightningIcon}>
+            {products.map((prod, i) => (
+              <CardProduto  page={"home"} product={prod} key={i} />
+            ))}
+          </HomeSession>
           <DepartmentSession />
         </div>
       </main>

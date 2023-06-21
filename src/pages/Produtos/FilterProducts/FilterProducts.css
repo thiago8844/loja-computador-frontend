@@ -1,0 +1,68 @@
+.filter-products {
+  grid-row: 1 / -1;
+  grid-column: 1;
+
+  background-color: #fdfdfd;
+  border-radius: 5px;
+
+  padding: 16px 12px;
+}
+
+.filter-products h2 {
+  color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 22px;
+
+  margin-bottom: 18px;
+}
+.filter-products h2 svg {
+  width: 24px;
+  color: rgb(16, 55, 92);
+}
+
+.filter-products details[open] svg {
+  transform: rotate(180deg);
+}
+
+.filter-products details summary {
+  font-size: 18px;
+  color: rgb(73, 73, 73);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0 ;
+
+  padding-left: 16px;
+  padding-right: 20px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-products details summary svg {
+  width: 2.2rem;
+  color: rgb(16, 55, 92);
+}
+
+.filter-products details {
+
+  padding: 10px 0;
+
+  border-top: 1px solid rgba(170, 170, 170, 0.432);
+}
+.filter-products details:last-child {
+  border-bottom: 1px solid rgba(170, 170, 170, 0.432);
+}
+
+.em-construcao {
+
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.em-construcao h5 {
+  color: gray;
+}

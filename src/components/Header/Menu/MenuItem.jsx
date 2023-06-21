@@ -11,13 +11,9 @@ function MenuItem({ item, depthLevel }) {
   //Props
   const { title, key, url } = item;
 
-  const toogleDropdown = (e) => {
-    e.preventDefault();
-    setDropdown((prev) => !prev);
-  };
   
   return (
-    <li className={`menu-item ${item.title === "departamentos" ? "dep" : ""} ${dropdown && depthLevel === 0? "open" : ""}`} key={key} onMouseEnter={toogleDropdown} onMouseLeave={toogleDropdown}>
+    <li className={`menu-item ${item.title === "departamentos" ? "dep" : ""} ${dropdown && depthLevel === 0? "open" : ""}`} key={key} onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
       {item.subMenu ? (
         <>
           <Link
@@ -36,7 +32,8 @@ function MenuItem({ item, depthLevel }) {
           />
         </>
       ) : (
-        <Link to={`/departamento${url}`}>{item.icon && depthLevel===0 ? (<img src={item.icon}/>) : ""} {title}</Link>
+        
+        <Link to={item.title === "monte seu computador" ? `/monteseupc` : `/departamento${url}`}>{item.icon && depthLevel===0 ? (<img src={item.icon}/>) : ""} {title}</Link>
       )}
     </li>
   );

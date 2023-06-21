@@ -15,14 +15,22 @@ function NavBar() {
   const navigate = useNavigate();
   const [auth, setAuth] = useState(false);
   const [userName, setUserName] = useState("");
+  const [keywords, setKeywords] = useState("");
   const cookies = new Cookies();
   
   const logOut = () => {
     cookies.remove("auth");
     setUserName("");
     setAuth(false);
-    navigate("/");
   };
+
+  const search = (e) => {
+    e.preventDefault();
+    
+    if(!keywords) return;
+    
+    navigate(`/busca?keywords=${keywords}`);
+  }
 
   useEffect(() => {
     const token = cookies.get("auth");
@@ -60,11 +68,13 @@ function NavBar() {
       </Link>
 
       <div className="barra-pesquisa">
-        <form action="/busca" method="GET">
+        <form onSubmit={search} action="/busca" method="GET">
           <input
             type="text"
             placeholder="Digite o que você procura"
             name="keywords"
+            value={keywords}
+            onChange={e => setKeywords(e.target.value)}
             autoComplete="off"
           />
           <button>
@@ -96,7 +106,7 @@ function NavBar() {
             </span>
             <br />
             <Link to="/minha-conta">Minha Conta</Link> |{" "}
-            <Link to="" onClick={logOut}>
+            <Link to="/" onClick={logOut}>
               Sair
             </Link>
           </p>

@@ -13,16 +13,16 @@ main {
   gap: 7.2rem;
 }
 
-.product-card {
+.product-card.home {
   width: 19%;
 }
 
-.flex-anuncio {
+.flex-anuncio.home {
   gap: 1.25%;
 }
 
 @media (max-width: 1568px) {
-  .product-card {
+  .product-card.home {
     width: 24%;
   }
   .flex-products {
@@ -31,7 +31,7 @@ main {
 }
 
 @media (max-width: 1320px) {
-  .product-card {
+  .product-card.home {
     width: 32.3333333%;
   }
   .flex-products {
@@ -40,20 +40,24 @@ main {
 }
 
 @media (max-width: 1077px) {
-  .product-card {
+  .product-card.home {
     width: 49%;
   }
   .flex-products {
     gap: 2%
   }
+
+  .banner {
+    margin-top: 60px;
+  }
 }
 
 @media (max-width: 670px) {
-  .product-card {
+  .product-card.home {
     width: 100%;
   }
 
-  .flex-products {
+  .flex-products.home {
     gap: 0%
   }
 }

@@ -5,12 +5,12 @@ import cdnLink from "../../services/cdn";
 import imagemTeste from "../../images/produtoteste.jpg";
 import { Link } from "react-router-dom";
 
-function CardProduto({ product }) {
+function CardProduto({ product, page }) {
   return (
     <Link
       to={`/produto/${product.id_produto}`}
       state={{ id: product.id_produto }}
-      className="product-card"
+      className={`product-card ${page}`}
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
