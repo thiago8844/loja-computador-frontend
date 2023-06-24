@@ -109,7 +109,7 @@
 
 .submit-register {
   padding: 16px 32px;
-  width: 50%;
+  width: 30%;
   position: absolute;
   bottom: -112px;
   left: 50%;
@@ -126,6 +126,25 @@
 
 .submit-register:hover {
   background-color: #ffffff;
+
+}
+
+.input-box .errors-register-form {
+  margin-top: 12px;
+
+  color: rgb(255, 218, 218);
+  list-style-type: disc !important;
+  list-style: disc !important;
+
+}
+
+.input-box .errors-register-form li {
+  margin-top: 6px;
+}
+
+.input-box  input[disabled] {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.829);
 }
 
 @media screen and (max-width: 920px) {
@@ -153,3 +172,8 @@
     width: 95%;
   }
 }
+
+pre {
+text-align: center;
+}
+

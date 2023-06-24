@@ -66,7 +66,7 @@ function Login() {
         <div className="formLogin" >
           <form onSubmit={submitLoginHandler}>
             <div className="formHeader">
-              <div className="title">
+              <div className="login-title">
                 <h1>Login</h1>
               </div>
             </div>
@@ -100,7 +100,7 @@ function Login() {
 
             <div className="signupClick">
               <p>
-                Não é cadastrado ? <a href="/cadastro">Clique Aqui.</a>
+                Não é cadastrado ? <Link to="/cadastro">Clique Aqui.</Link>
               </p>
             </div>
 

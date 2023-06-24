@@ -1,6 +1,9 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import PrivateRoutes from "./utils/PrivateRoutes";
+
+import ScrollToTop from "./utils/ScrollToTop";
+
 //Paginas
 import Home from "./pages/Home/index";
 import Produto from "./pages/Produto/Produto";
@@ -11,10 +14,15 @@ import Carrinho from "./pages/Carrinho/Carrinho";
 import FinalizarPedido from "./pages/FinalizarPedido/FinalizarPedido";
 import Produtos from "./pages/Produtos/Produtos";
 import Pagina404 from "./pages/Pagina404/Pagina404";
+import UserProfile from "./pages/UserProfile/UserProfile";
+
 
 function Router() {
+
+  
   return (
     <BrowserRouter>
+        <ScrollToTop/>
       <Routes>
         //Rotas públicas
         <Route exact path="/" element={<Home />} />
@@ -31,9 +39,10 @@ function Router() {
         <Route element={<PrivateRoutes/>}>
           <Route path="/criarproduto" element={<CreateProduct/>}/>
           <Route path="/finalizar-pedido" element={<FinalizarPedido/>}/>
-
+          <Route exact path="/minha-conta" element={<UserProfile/>}/>
+          <Route path="/minha-conta/:secao" element={<UserProfile/>}/>
         </Route>
-        {/* <PrivateRoute path="/criarproduto" element={<CreateProduct/>}/> */}
+
       </Routes>
     </BrowserRouter>
   );

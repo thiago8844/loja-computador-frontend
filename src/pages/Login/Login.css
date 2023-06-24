@@ -70,13 +70,13 @@
   justify-content: space-between;
 }
 
-.formLogin .formLogin h1 {
+.formLogin  h1 {
   color: #0e5291;
   font-size: 35px;
   font-weight: 200;
 }
 
-.formLogin .formLogin label {
+.formLogin label {
   color: #0e5291;
   font-size: 20px;
   font-weight: 300;

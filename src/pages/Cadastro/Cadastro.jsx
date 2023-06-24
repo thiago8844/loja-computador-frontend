@@ -1,10 +1,46 @@
-import React from "react";
-
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { isNumeric, checkAuth } from "../../utils";
+import { Link, useAsyncValue } from "react-router-dom";
 import logo from "../../images/logos/logo 2 degradê+texto Horizontal.svg";
 import "./Cadastro.css";
 
 function Cadastro() {
+  const initialValues = {
+    nome: "",
+    cpf: "",
+    data_nasc: "",
+    telefone: "",
+    email: "",
+    senha: "",
+    senhaC: "",
+    cep: "",
+    rua: "",
+    numero: "",
+    complemento: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+  };
+
+  const [address, setAdress] = useState(null);
+  const checkCEP = async (e) => {
+    const cep = e.target.value.replace(/\D/g, '');
+    console.log(cep);
+
+    if(cep.length === 8) {
+      
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const receivedAddress = await response.json();
+
+      setAdress(receivedAddress);
+    }
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.value)
+  };
+
   return (
     <div className="register-page-container">
       <div className="register-header">
@@ -24,12 +60,13 @@ function Cadastro() {
       </div>
 
       <main className="register-page-main">
-        <form action="" className="register-form-container">
+       
+        <form onSubmit={handleSubmit} className="register-form-container">
           <fieldset className="personal-info-data">
             <legend>Dados Pessoa Física</legend>
 
-            <div class="input-box">
-              <label for="fullname">Nome completo:</label>
+            <div className="input-box">
+              <label htmlFor="fullname">Nome completo:</label>
               <input
                 name="nome"
                 id="fullname"
@@ -37,58 +74,66 @@ function Cadastro() {
                 placeholder="Digite seu nome completo:"
               />
             </div>
-            <div class="input-box">
-              <label for="cpf">Digite seu cpf:</label>
+
+            <div className="input-box">
+              <label htmlFor="cpf">Digite seu cpf:</label>
               <input
                 name="cpf"
                 id="cpf"
-                type="number"
+                type="text"
                 placeholder="Digite seu cpf:"
+                maxLength={11}
                 required
               />
             </div>
-            <div class="input-box">
-              <label for="birth">Data de nascimento:</label>
-              <input name="data_nasc" id="birth" type="date" required />
+            <div className="input-box">
+              <label htmlFor="birth">Data de nascimento:</label>
+              <input required name="data_nasc" id="birth" type="date" />
             </div>
-            <div class="input-box">
-              <label for="cellphone">Celular:</label>
+            <div className="input-box">
+              <label htmlFor="cellphone">Celular:</label>
               <input
                 name="telefone"
                 id="cellphone"
                 type="tel"
-                placeholder="Telefone fixo ou celular: *com DDD*"
-                maxlength="11"
                 required
+                placeholder="Telefone fixo ou celular: *com DDD*"
+                maxLength="11"
               />
             </div>
 
-            <div class="input-box">
-              <label for="email">Email:</label>
+            <div className="input-box">
+              <label htmlFor="email">Email:</label>
               <input
                 name="email"
                 id="email"
                 type="email"
+                autoComplete="on"
+                required
                 placeholder="Digite seu email"
               />
             </div>
 
-            <div class="input-box">
-              <label for="password">Senha:</label>
+            <div className="input-box">
+              <label htmlFor="password">Senha:</label>
               <input
                 name="senha"
                 id="password"
                 type="password"
+                autoComplete="on"
+                required
                 placeholder="Defina uma senha:"
               />
             </div>
 
-            <div class="input-box">
-              <label for="passwordC">Confirmação de senha:</label>
+            <div className="input-box">
+              <label htmlFor="senhaC">Confirmação de senha:</label>
               <input
-                name="passwordC"
+                name="senhaC"
                 id="passwordC"
                 type="password"
+                autoComplete="on"
+                required
                 placeholder="Confirme sua senha"
               />
             </div>
@@ -96,32 +141,34 @@ function Cadastro() {
 
           <fieldset className="adress-data">
             <legend>Endereço</legend>
-            <div class="input-box">
-              <label for="cep">CEP:</label>
+            <div className="input-box">
+              <label htmlFor="cep">CEP:</label>
               <input
                 id="cep"
-                type="number"
+                type="text"
                 name="cep"
-                placeholder="Digite seu CEP:"
                 required
+                onBlur={checkCEP}
+                placeholder="Digite seu CEP:"
+                maxLength={8}
               />
             </div>
-            <div class="input-box">
-              <label for="street">Rua:</label>
-              <input id="street" type="text" name="rua" required />
+            <div className="input-box">
+              <label htmlFor="street">Rua:</label>
+              <input required disabled  value={ address ? address.logradouro : ""} id="street" type="text" name="rua" />
             </div>
-            <div class="input-box">
-              <label for="number">Número:</label>
+            <div className="input-box">
+              <label htmlFor="number">Número:</label>
               <input
                 id="number"
                 type="number"
                 name="numero"
-                placeholder="Digite o número:"
                 required
+                placeholder="Digite o número:"
               />
             </div>
-            <div class="input-box">
-              <label for="more">Complemento:</label>
+            <div className="input-box">
+              <label htmlFor="more">Complemento:</label>
               <input
                 id="more"
                 type="text"
@@ -129,21 +176,23 @@ function Cadastro() {
                 placeholder="Digite o complemento:"
               />
             </div>
-            <div class="input-box">
-              <label for="bairro">Bairro:</label>
-              <input id="bairro" type="text" name="bairro" required />
+            <div className="input-box">
+              <label htmlFor="bairro">Bairro:</label>
+              <input required disabled value={ address ? address.bairro : ""} id="bairro" type="text" name="bairro" />
             </div>
-            <div class="input-box">
-              <label for="city">Cidade:</label>
-              <input id="city" type="text" name="cidade" required />
+            <div className="input-box">
+              <label htmlFor="city">Cidade:</label>
+              <input  required disabled value={ address ? address.localidade : ""} id="city" type="text" name="cidade" />
             </div>
-            <div class="input-box">
-              <label for="state">Estado:</label>
-              <input id="state" type="text" name="estado" required />
+            <div className="input-box">
+              <label htmlFor="state">Estado:</label>
+              <input required disabled id="state" value={ address ? address.uf : ""} type="text" name="estado" />
             </div>
           </fieldset>
 
-          <button className="submit-register" type="submit">Cadastrar</button>
+          <button className="submit-register" type="submit">
+            Cadastrar
+          </button>
         </form>
       </main>
     </div>

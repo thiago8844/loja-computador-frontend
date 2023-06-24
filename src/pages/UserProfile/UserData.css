@@ -1,0 +1,29 @@
+.user-data-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.user-data {
+  width: 100%;
+  padding-top: 84px;
+}
+
+.user-page-input-box {
+  display: flex;
+;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.user-page-input-box input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px #0000001c;
+  outline: none;
+}
