@@ -1,0 +1,39 @@
+.address-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-bottom: 120px;
+}
+.address-data {
+  width: 100%;
+  padding-top: 72px;
+}
+.address-data form {
+  position: relative;
+
+}
+.address-data button  {
+  padding: 12px 32px;
+  font-size: 22px;
+  margin-top: 32px;
+  border: none;
+  background-color: rgb(15, 72, 179);
+  border-radius: 5px;
+  color: white;
+  -webkit-box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
+  position: absolute;
+  display: flex;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+.address-data button:hover {
+  opacity: 0.95;
+}
+.address-data button img {
+  width: 24px;
+  margin-right: 8px;
+
+}

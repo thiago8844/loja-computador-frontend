@@ -1,12 +1,12 @@
 .user-profile-container {
   width: 80%;
   margin: 96px auto;
-  height: 700px;
+  overflow: hidden;
   background-color: aliceblue;
   display: flex;
-  align-items: center;
-  border-radius: 3px;
-  overflow: hidden;
+  align-items: stretch;
+  border-radius: 5px;
+  height: 100%;
   -webkit-box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 0px 18px -11px rgba(0, 0, 0, 0.75);
@@ -16,4 +16,43 @@
   padding: 24px;
   width: 80%;
   height: 100%;
+  min-height: 700px;
+}
+
+.user-profile-errors {
+  margin-top: 48px;
+  text-align: left;
+  list-style:disc;
+
+  background-color: rgb(255, 222, 222);
+  padding: 16px;
+  padding-left: 32px;
+  border-radius: 5px;
+  display: none;
+}
+.user-profile-errors.show {
+  display: block;
+}
+.user-profile-errors li {
+  list-style-type: disc;
+  color: rgb(136, 0, 0);
+}
+
+.user-page-input-box {
+  display: flex;
+
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+.user-page-input-box input {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 1px 1px 6px #0000001c;
+  outline: none;
 }
