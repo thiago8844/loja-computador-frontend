@@ -25,14 +25,14 @@ function Login() {
 
     try {
       const response = await api.post("login", auth);
+      
       const token = response.data.token
       const decoded = jwt(token);
-      console.log(decoded)
       cookies.set("auth", token, {expires: new Date(decoded.exp * 1000)});
 
      navigate('/');
     } catch (error) {
-      alert(error);
+      alert(error.response.data.error);
     }
   };
 

@@ -10,7 +10,7 @@
   flex-direction: column;
   gap: 24px;
   position: relative;
-  height: 100px;
+  height: 50px;
   overflow: hidden;
 }
 
@@ -74,4 +74,10 @@ color: rgb(59, 59, 59);
 .card-products li img {
   width: 120px;
   height: 120px;
+}
+
+.total-order {
+  font-size: 24px;
+  display: flex;
+  justify-content: space-between;
 }

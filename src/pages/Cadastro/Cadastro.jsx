@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { isNumeric, checkAuth } from "../../utils";
 import api from "../../services/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { validateUserData, validateUserAddress } from "../../utils";
 import logo from "../../images/logos/logo 2 degradê+texto Horizontal.svg";
 import "./Cadastro.css";
@@ -24,6 +24,7 @@ function Cadastro() {
     estado: "",
   };
 
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState(initialValues);
   const [errors, setErrors] = useState([]);
 
@@ -69,21 +70,28 @@ function Cadastro() {
 
     //Erros frontend
 
-    if (!userResult.result && !addressResult.result) {
+    if (!userResult.result || !addressResult.result) {
       setErrors([...userResult.errors, ...addressResult.errors]);
+
       return;
     }
 
-
+    console.log("passou");
 
     //Erros backend
     setErrors([]);
-    return
-    const resultado = await api.post("/cadastro", formValues);
+    try {
+      const response = await api.post("/cadastro", formValues);
 
-    console.log(resultado)
+      if(response.status === 200) navigate("/login");
 
-    console.log(e.target.value);
+    } catch (error) {
+      //Pega os erros da resposta do backend
+      const backendErrors = error.response.data.map((err, i) => err.msg);
+      setErrors([...backendErrors]);
+    }
+    
+
   };
 
   return (
@@ -139,7 +147,13 @@ function Cadastro() {
             </div>
             <div className="input-box">
               <label htmlFor="birth">Data de nascimento:</label>
-              <input name="data_nasc" id="birth" type="date" />
+              <input
+                onChange={changeHandler}
+                value={formValues.data_nasc}
+                name="data_nasc"
+                id="birth"
+                type="date"
+              />
             </div>
             <div className="input-box">
               <label htmlFor="cellphone">Celular:</label>

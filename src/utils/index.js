@@ -108,7 +108,7 @@ export function validateUserAddress(address) {
   if (errors.length === 0) {
     return {
       result: true,
-      errors: null,
+      errors: [],
     };
   }
   return {
@@ -133,18 +133,17 @@ export function validateUserData(userData) {
 
   cpf = cpf.replace(/\D/g, "");
   if (cpf.length != 11 || !cpf) errors.push("CPF inválido");
-
+  console.log(data_nasc)
   if (!data_nasc) errors.push("Data inválida");
 
-  if((senha && senhaC) && senha != senhaC) errors.push("As senhas não batem")
+  if((senha && senhaC) && (senha != senhaC)) errors.push("As senhas não batem")
 
-  console.log(userData);
 
   //Envia os resultado
   if (errors.length === 0) {
     return {
       result: true,
-      errors: null,
+      errors: [],
     };
   }
 

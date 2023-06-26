@@ -59,9 +59,6 @@ function Produto(props) {
   };
 
 
-  const addProductToCart = () => {
-
-  }
 
   if (product) {
 

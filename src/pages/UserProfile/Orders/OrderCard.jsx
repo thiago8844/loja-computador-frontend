@@ -78,6 +78,16 @@ function OrderCard({ order }) {
           );
         })}
       </ul>
+
+      <div className="total-order">
+        <span>Total:</span>
+        <span>
+          {Number(order.valor_total).toLocaleString("pt-br", {
+            style: "currency",
+            currency: "BRL",
+          })}
+        </span>
+      </div>
     </div>
   );
 }
