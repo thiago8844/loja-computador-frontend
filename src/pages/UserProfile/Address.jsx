@@ -7,7 +7,7 @@ import editIcon from "../../images/icons/editIcon.svg";
 
 
 function Address() {
-  const { user_id, authenticated, token } = checkAuth();
+  const {token } = checkAuth();
   const [Address, setAddress] = useState(null);
   const [locked, setLocked] = useState(true);
   const [errors, setErrors] = useState(null);
@@ -32,16 +32,16 @@ function Address() {
   };
   //Envia o novo endereco para o server
   const sendNewAddressData = async () => {
-    // const resultado = validateUserData(Address);
-    // console.log(resultado);
-    // if(!resultado.result) {
-    //   console.log("erros demais");
-    //   setErrors(resultado.errors);
-    //   return
-    // }
-
+    const resultado = validateUserAddress(Address);
+    console.log(resultado);
+    if(!resultado.result) {
+      console.log("erros demais");
+      setErrors(resultado.errors);
+      return
+    }
+    
+    
     setErrors(null);
-
     const response = await api.post("/editarendereco", Address, {
       headers: {
         Authorization: token,
@@ -103,9 +103,9 @@ function Address() {
   if (Address) {
     return (
       <div className="address-container">
-        <h1>Endereço</h1>
+        <h1>Endereço Padrão</h1>
         <ul className={`user-profile-errors ${errors ? "show" : ""}`}>
-          {errors ? errors.map((e) => <li>{e}</li>) : <></>}
+          {errors ? errors.map((e, i) => <li key={i}>{e}</li>) : <></>}
         </ul>
         <div className="address-data">
           <form onSubmit={(e) => e.preventDefault()}>

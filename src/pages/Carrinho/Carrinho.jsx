@@ -17,7 +17,7 @@ function Carrinho() {
 
   const loadUserCart = async () => {
     try {
-      const response = await api.get(`produtos-usuario/${user_id}`, {
+      const response = await api.get(`produtos-usuario`, {
         headers: {
           Authorization: token,
         },
@@ -33,7 +33,7 @@ function Carrinho() {
     //Guard Clause
     if (action === "subtract" && unique) return;
 
-    const response = await api.put(`editarquantidadecarrinho/${user_id}`, {
+    const response = await api.put(`editarquantidadecarrinho`, {
       action,
       id_produto,
     });
@@ -43,7 +43,7 @@ function Carrinho() {
 
   const removeUserItem = async (id_produto) => {
     const response = await api.delete(
-      `removeritemcarrinho/${user_id}/${id_produto}`,
+      `removeritemcarrinho/${id_produto}`,
       {
         headers: {
           Authorization: token,
@@ -57,7 +57,7 @@ function Carrinho() {
 
   const clearUserCart = async () => {
     try {
-      const response = await api.delete(`limparcarrinho/${user_id}`, {
+      const response = await api.delete(`limparcarrinho`, {
         headers: {
           Authorization: token,
         },

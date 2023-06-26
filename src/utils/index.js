@@ -89,12 +89,32 @@ export function formatPhoneNumber(phoneNumber) {
 }
 
 export function formatCEP(cep) {
-  const cleanCEP = cep.replace(/\D/g, '');
-  return cleanCEP.replace(/(\d{5})(\d{3})/, '$1-$2');
+  const cleanCEP = cep.replace(/\D/g, "");
+  return cleanCEP.replace(/(\d{5})(\d{3})/, "$1-$2");
 }
 
 export function validateUserAddress(address) {
-  return null;
+  const errors = [];
+  let { cep, rua, numero, bairro, cidade, estado } = address;
+
+  cep = cep.replace(/\D/g, "");
+  if (!cep || cep.length != 8) errors.push("CEP inválido");
+  if (!rua) errors.push("Rua inválida");
+  if (!numero) errors.push("Número inválido");
+  if (!bairro) errors.push("Bairro inválido");
+  if (!cidade) errors.push("Cidade inválida");
+  if (!estado) errors.push("Estado inválido");
+
+  if (errors.length === 0) {
+    return {
+      result: true,
+      errors: null,
+    };
+  }
+  return {
+    result: false,
+    errors,
+  };
 }
 
 export function validateUserData(userData) {
@@ -104,12 +124,13 @@ export function validateUserData(userData) {
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if(!nome) errors.push("Nome inválido");
+  if (!nome) errors.push("Nome inválido");
   if (!emailRegex.test(email)) errors.push("Email Inválido");
-  
+
   telefone = telefone.replace(/\D/g, "");
-  if ((telefone.length != 10 && telefone.length != 11) || !telefone ) errors.push("Telefone inválido");
-  
+  if ((telefone.length != 10 && telefone.length != 11) || !telefone)
+    errors.push("Telefone inválido");
+
   cpf = cpf.replace(/\D/g, "");
   if (cpf.length != 11 || !cpf) errors.push("CPF inválido");
 
@@ -131,4 +152,3 @@ export function validateUserData(userData) {
   };
   return null;
 }
-

@@ -81,7 +81,7 @@ function UserData() {
       <div className="user-data-container">
         <h1>Dados da Conta</h1>
         <ul className={`user-profile-errors ${errors ? "show":""}`}>
-          {errors ? errors.map(e => <li>{e}</li> ): <></>}
+          {errors ? errors.map((e, i) => <li key={i}>{e}</li> ): <></>}
         </ul>
         <div className="user-data">
           <form onSubmit={(e) => e.preventDefault()}>

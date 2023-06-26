@@ -1,0 +1,28 @@
+.payment-container h2 {
+  text-align: center;
+}
+.payment-options {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pay-option {
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+  font-size: 18px;
+}
+.pay-option label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pay-option img {
+  width: 16px;
+}
+
+.pay-option svg {
+  width: 16px;
+}
