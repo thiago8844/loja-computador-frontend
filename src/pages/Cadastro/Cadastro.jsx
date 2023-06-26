@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { isNumeric, checkAuth } from "../../utils";
-import { Link, useAsyncValue } from "react-router-dom";
+import api from "../../services/api";
+import { Link } from "react-router-dom";
+import { validateUserData, validateUserAddress } from "../../utils";
 import logo from "../../images/logos/logo 2 degradê+texto Horizontal.svg";
 import "./Cadastro.css";
 
@@ -22,23 +24,66 @@ function Cadastro() {
     estado: "",
   };
 
-  const [address, setAdress] = useState(null);
+  const [formValues, setFormValues] = useState(initialValues);
+  const [errors, setErrors] = useState([]);
+
+  //Preenche o cep através da api viacep
   const checkCEP = async (e) => {
-    const cep = e.target.value.replace(/\D/g, '');
+    const cep = e.target.value.replace(/\D/g, "");
     console.log(cep);
 
-    if(cep.length === 8) {
-      
+    if (cep.length === 8) {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const receivedAddress = await response.json();
 
-      setAdress(receivedAddress);
-    }
-  }
+      setFormValues((prev) => {
+        prev["rua"] = receivedAddress.logradouro;
+        prev["bairro"] = receivedAddress.bairro;
+        prev["cidade"] = receivedAddress.localidade;
+        prev["estado"] = receivedAddress.uf;
 
-  const handleSubmit = (e) => {
+        return { ...prev };
+      });
+    }
+  };
+
+  //Lida com mudanças no formulário
+  const changeHandler = (e) => {
+    let { name, value } = e.target;
+
+    if (name === "cpf" || name === "telefone") value = value.replace(/\D/g, "");
+
+    setFormValues((prevData) => {
+      prevData[name] = value;
+
+      return { ...prevData };
+    });
+  };
+
+  //Envia os dados
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+
+    const addressResult = validateUserAddress(formValues);
+    const userResult = validateUserData(formValues);
+
+    //Erros frontend
+
+    if (!userResult.result && !addressResult.result) {
+      setErrors([...userResult.errors, ...addressResult.errors]);
+      return;
+    }
+
+
+
+    //Erros backend
+    setErrors([]);
+    return
+    const resultado = await api.post("/cadastro", formValues);
+
+    console.log(resultado)
+
+    console.log(e.target.value);
   };
 
   return (
@@ -60,11 +105,14 @@ function Cadastro() {
       </div>
 
       <main className="register-page-main">
-       
+        <ul className={`register-errors ${errors.length > 0 ? "show" : ""}`}>
+          {errors.map((error, i) => {
+            return <li key={i}>{error}</li>;
+          })}
+        </ul>
         <form onSubmit={handleSubmit} className="register-form-container">
           <fieldset className="personal-info-data">
             <legend>Dados Pessoa Física</legend>
-
             <div className="input-box">
               <label htmlFor="fullname">Nome completo:</label>
               <input
@@ -72,33 +120,36 @@ function Cadastro() {
                 id="fullname"
                 type="text"
                 placeholder="Digite seu nome completo:"
+                onChange={changeHandler}
+                value={formValues.nome}
               />
             </div>
 
             <div className="input-box">
-              <label htmlFor="cpf">Digite seu cpf:</label>
+              <label htmlFor="cpf">Digite seu CPF:</label>
               <input
                 name="cpf"
                 id="cpf"
                 type="text"
-                placeholder="Digite seu cpf:"
+                placeholder="Digite seu CPF:"
                 maxLength={11}
-                required
+                onChange={changeHandler}
+                value={formValues.cpf}
               />
             </div>
             <div className="input-box">
               <label htmlFor="birth">Data de nascimento:</label>
-              <input required name="data_nasc" id="birth" type="date" />
+              <input name="data_nasc" id="birth" type="date" />
             </div>
             <div className="input-box">
               <label htmlFor="cellphone">Celular:</label>
               <input
                 name="telefone"
-                id="cellphone"
                 type="tel"
-                required
                 placeholder="Telefone fixo ou celular: *com DDD*"
                 maxLength="11"
+                onChange={changeHandler}
+                value={formValues.telefone}
               />
             </div>
 
@@ -109,7 +160,8 @@ function Cadastro() {
                 id="email"
                 type="email"
                 autoComplete="on"
-                required
+                onChange={changeHandler}
+                value={formValues.email}
                 placeholder="Digite seu email"
               />
             </div>
@@ -121,8 +173,9 @@ function Cadastro() {
                 id="password"
                 type="password"
                 autoComplete="on"
-                required
                 placeholder="Defina uma senha:"
+                onChange={changeHandler}
+                value={formValues.senha}
               />
             </div>
 
@@ -133,8 +186,9 @@ function Cadastro() {
                 id="passwordC"
                 type="password"
                 autoComplete="on"
-                required
                 placeholder="Confirme sua senha"
+                onChange={changeHandler}
+                value={formValues.senhaC}
               />
             </div>
           </fieldset>
@@ -147,15 +201,23 @@ function Cadastro() {
                 id="cep"
                 type="text"
                 name="cep"
-                required
                 onBlur={checkCEP}
                 placeholder="Digite seu CEP:"
+                onChange={changeHandler}
+                value={formValues.cep}
                 maxLength={8}
               />
             </div>
             <div className="input-box">
               <label htmlFor="street">Rua:</label>
-              <input required disabled  value={ address ? address.logradouro : ""} id="street" type="text" name="rua" />
+              <input
+                disabled
+                id="street"
+                type="text"
+                name="rua"
+                onChange={changeHandler}
+                value={formValues.rua}
+              />
             </div>
             <div className="input-box">
               <label htmlFor="number">Número:</label>
@@ -163,8 +225,9 @@ function Cadastro() {
                 id="number"
                 type="number"
                 name="numero"
-                required
                 placeholder="Digite o número:"
+                onChange={changeHandler}
+                value={formValues.numero}
               />
             </div>
             <div className="input-box">
@@ -174,19 +237,42 @@ function Cadastro() {
                 type="text"
                 name="complemento"
                 placeholder="Digite o complemento:"
+                onChange={changeHandler}
+                value={formValues.complemento}
               />
             </div>
             <div className="input-box">
               <label htmlFor="bairro">Bairro:</label>
-              <input required disabled value={ address ? address.bairro : ""} id="bairro" type="text" name="bairro" />
+              <input
+                disabled
+                value={formValues.bairro}
+                onChange={changeHandler}
+                id="bairro"
+                type="text"
+                name="bairro"
+              />
             </div>
             <div className="input-box">
               <label htmlFor="city">Cidade:</label>
-              <input  required disabled value={ address ? address.localidade : ""} id="city" type="text" name="cidade" />
+              <input
+                disabled
+                value={formValues.cidade}
+                onChange={changeHandler}
+                id="city"
+                type="text"
+                name="cidade"
+              />
             </div>
             <div className="input-box">
               <label htmlFor="state">Estado:</label>
-              <input required disabled id="state" value={ address ? address.uf : ""} type="text" name="estado" />
+              <input
+                disabled
+                id="state"
+                value={formValues.estado}
+                onChange={changeHandler}
+                type="text"
+                name="estado"
+              />
             </div>
           </fieldset>
 

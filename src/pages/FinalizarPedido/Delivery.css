@@ -1,7 +1,8 @@
 .delivery-container {
 
   grid-column: 1;
-  grid-row: 1;
+  grid-area: 1 / 1 / 9 / 2;
+
 }
 
 .delivery-address {

@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
 import ProfileSidebar from "./ProfileSidebar";
-import Orders from "./Orders";
+import Orders from "./Orders/Orders";
 import UserData from "./UserData";
 import Address from "./Address";
 

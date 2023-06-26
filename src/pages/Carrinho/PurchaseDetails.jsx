@@ -50,7 +50,7 @@ function PurchaseDetails({ cartItems }) {
         </div>
       </div>
 
-      <Link to="/finalizar-pedido">
+      <Link to={cartItems.length === 0 ? "" : "/finalizar-pedido"}>
         <button className="finish-purchase-btn">FINALIZAR COMPRA</button>
       </Link>
     </div>

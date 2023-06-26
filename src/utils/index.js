@@ -120,7 +120,7 @@ export function validateUserAddress(address) {
 export function validateUserData(userData) {
   const errors = [];
 
-  let { email, telefone, cpf, nome, data_nasc } = userData;
+  let { email, telefone, cpf, nome, data_nasc, senha, senhaC } = userData;
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -135,6 +135,8 @@ export function validateUserData(userData) {
   if (cpf.length != 11 || !cpf) errors.push("CPF inválido");
 
   if (!data_nasc) errors.push("Data inválida");
+
+  if((senha && senhaC) && senha != senhaC) errors.push("As senhas não batem")
 
   console.log(userData);
 

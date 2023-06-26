@@ -79,7 +79,7 @@ function UserData() {
   if (userData) {
     return (
       <div className="user-data-container">
-        <h1>Dados da Conta</h1>
+        <h1>Seus Dados</h1>
         <ul className={`user-profile-errors ${errors ? "show":""}`}>
           {errors ? errors.map((e, i) => <li key={i}>{e}</li> ): <></>}
         </ul>

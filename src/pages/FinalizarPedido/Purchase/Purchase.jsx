@@ -2,7 +2,15 @@ import React from "react";
 import cdn from "../../../services/cdn";
 import "./Purchase.css";
 
-function Purchase({ orderItems, total, finishPurchase }) {
+function Purchase({ orderItems, finishPurchase }) {
+  
+  //Calcula o valor total
+  let total = 0;
+  for (let p of orderItems) {
+    console.log(p);
+    total += Number(p.preco) * p.quantidade;
+  }
+
   const formattedTotal = total.toLocaleString("pt-br", {
     style: "currency",
     currency: "BRL",
@@ -26,7 +34,9 @@ function Purchase({ orderItems, total, finishPurchase }) {
         </li>
       </ul>
 
-      <button onClick={finishPurchase} className="finish-order-btn">FINALIZAR COMPRA</button>
+      <button onClick={finishPurchase} className="finish-order-btn">
+        FINALIZAR COMPRA
+      </button>
 
       <div className="order-items-container">
         <h4>ITENS DO PEDIDO</h4>
