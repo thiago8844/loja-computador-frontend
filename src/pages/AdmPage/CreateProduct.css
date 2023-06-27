@@ -1,0 +1,93 @@
+.create-product-container {
+
+}
+
+.create-product-container  h1 {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.create-product-container  .criar-produto-form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 24px;
+  margin: 48px auto;
+  margin-bottom: 96px;
+  width: 60%;
+  padding: 24px;
+}
+.create-product-container  .criar-produto-form > * {
+  display: flex;
+  flex-direction: column;
+}
+.create-product-container  label {
+  margin-bottom: 6px;
+}
+.create-product-container  input {
+  padding: 5px 32px 5px 12px;
+
+  font-size: 17px;
+}
+
+.create-product-container  .form-descricao {
+  min-height: 140px;
+  height: 100%;
+  resize: none;
+}
+
+.create-product-container  .btn-criar {
+  padding: 12px;
+  max-width: 80px;
+  background-color: rgb(0, 148, 0);
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  text-align: center;
+}
+.create-product-container  .btn-criar:hover {
+  background-color: rgb(0, 105, 0);
+}
+
+.create-product-container  .div-btn {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+.create-product-container  .dep {
+  resize: none;
+  padding: 10px 0;
+  padding-left: 16px;
+  padding-right: 64px;
+  font-size: 16px;
+  border-radius: 0.25rem;
+  width: 222px;
+  border: 1px solid rgba(97, 97, 97, 0.726);
+  background-color: white;
+
+  font-family: sofia sans;
+  color: rgb(49, 49, 49);
+}
+.create-product-container  .form-sub-departamento {
+
+}
+
+.create-product-container  .errors-list {
+  background-color: rgb(255, 214, 214);
+  padding: 16px 0;
+  border-radius: 5px;
+  list-style: initial !important;
+
+}
+.create-product-container  .errors-list li {
+  color: rgb(168, 0, 0);
+  list-style-type: disc;
+  margin: 0 32px;
+}
+
+.create-product-container  .prod_add {
+  background-color: rgb(196, 255, 196);
+  color: green;
+  padding: 16px;
+}

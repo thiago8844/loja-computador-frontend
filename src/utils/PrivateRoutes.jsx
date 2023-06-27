@@ -9,6 +9,7 @@ function PrivateRoutes() {
   const cookies = new Cookies();
 
   const {authenticated} = checkAuth();
+  
   return (
     authenticated ? <Outlet/> : <Navigate to="/login"/>
   )

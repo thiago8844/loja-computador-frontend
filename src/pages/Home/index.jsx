@@ -25,6 +25,19 @@ function Home() {
       console.error(error);
     }
   };
+  let produtos1 = [];
+  let produtos2 = []
+  if(products.length > 20) {
+
+    for(let c = 0; c < 20; c++) {
+      produtos1.push(products[c]);
+    }
+
+    for(let c = 20; c > 0; c--) {
+      produtos2.push(products[c]);
+    }
+  }
+
 
   useEffect(() => {
     loadProducts();
@@ -37,13 +50,13 @@ function Home() {
         <BannerSlider />
         <div className="home-container">
           <HomeSession title="ofertas do momento" icon={clockIcon}>
-            {products.map((prod, i) => (
+            {produtos1.map((prod, i) => (
               <CardProduto page={"home"} product={prod} key={i} />
             ))}
           </HomeSession>
 
           <HomeSession title="mais vendidos" icon={lightningIcon}>
-            {products.map((prod, i) => (
+            {produtos2.map((prod, i) => (
               <CardProduto  page={"home"} product={prod} key={i} />
             ))}
           </HomeSession>

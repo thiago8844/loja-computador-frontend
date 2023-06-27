@@ -133,11 +133,10 @@ export function validateUserData(userData) {
 
   cpf = cpf.replace(/\D/g, "");
   if (cpf.length != 11 || !cpf) errors.push("CPF inválido");
-  console.log(data_nasc)
+  console.log(data_nasc);
   if (!data_nasc) errors.push("Data inválida");
 
-  if((senha && senhaC) && (senha != senhaC)) errors.push("As senhas não batem")
-
+  if (senha && senhaC && senha != senhaC) errors.push("As senhas não batem");
 
   //Envia os resultado
   if (errors.length === 0) {
